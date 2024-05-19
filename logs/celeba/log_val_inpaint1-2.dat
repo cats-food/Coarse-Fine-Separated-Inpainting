@@ -1,0 +1,10 @@
+iter 575000: mean psnr = 29.44 , mean mae = 0.0257
+iter 580000: mean psnr = 29.75 , mean mae = 0.0249  # best
+iter 585000: mean psnr = 29.54 , mean mae = 0.0255
+iter 590000: mean psnr = 29.67 , mean mae = 0.0251
+iter 595000: mean psnr = 29.66 , mean mae = 0.0252
+iter 600000: mean psnr = 29.51 , mean mae = 0.0254
+iter 605000: mean psnr = 29.53 , mean mae = 0.0254
+iter 610000: mean psnr = 29.63 , mean mae = 0.0252
+iter 615000: mean psnr = 29.64 , mean mae = 0.0254
+iter 620000: mean psnr = 29.56 , mean mae = 0.0251

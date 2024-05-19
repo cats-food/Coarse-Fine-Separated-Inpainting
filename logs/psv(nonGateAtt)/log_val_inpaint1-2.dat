@@ -1,0 +1,4 @@
+iter 5000: mean psnr = 28.86 , mean mae = 0.0312
+iter 10000: mean psnr = 28.17 , mean mae = 0.0342
+iter 15000: mean psnr = 28.62 , mean mae = 0.0322
+iter 20000: mean psnr = 28.44 , mean mae = 0.0326  # choose

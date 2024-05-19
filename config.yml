@@ -1,0 +1,55 @@
+MODEL: 3            # 1: inp1 model, 2: inp2 model, 3: inp1-2 model, 4: joint model
+MASK: 3             # 1: random block, 2: half, 3: external, 4: (external, random block), 5: (external, random block, half)
+SEED: 42            # random seed
+GPU: [0]            # list of gpu ids
+DEBUG: 0            # turns on debugging mode
+VERBOSE: 0          # turns on verbose mode in the output console
+
+## MODEL LOAD PATH
+ENABLE_D1: 0   # if set to 0, D1 wont be created, and CoarseModel_D_LOAD_PATH will be invalid
+CoarseModel_G_LOAD_PATH: checkpoints/psv/CoarseModel_G_00630000.pth
+
+RefineModel_G_LOAD_PATH: checkpoints/psv/RefineModel_G_00015000.pth
+RefineModel_D_LOAD_PATH: checkpoints/psv/RefineModel_D_00015000.pth
+## MODEL SAVE PATH
+G_SAVE_PATH:  checkpoints/psv
+D_SAVE_PATH: checkpoints/psv
+## IMAGE FLIST PATH
+TRAIN_FLIST: ./datasets/psv_train.flist
+VAL_FLIST: ./examples/psv/images #./datasets/psv_val.flist
+TEST_FLIST: ./examples/psv/images
+## MASK FLIST PATH
+TRAIN_MASK_FLIST: ./datasets/masks_train.flist
+VAL_MASK_FLIST: ./examples/psv/masks #./datasets/masks_val.flist
+TEST_MASK_FLIST: ./examples/psv/masks
+
+# 指定train时候的sample的path
+SAMPLE_PATH: ./samples/psv
+LOG_PATH: ./logs/psv
+## output path. 注意 test.py --output指定的路径优先级更高，如果存在的话，会覆盖掉下面这个
+RESULTS: ./results
+
+
+LR: 0.000001                    # learning rate
+D2G_LR: 0.1                   # discriminator/generator learning rate ratio
+BETA1: 0.9                    # adam optimizer beta1   0.0
+BETA2: 0.999                    # adam optimizer beta2   0.9
+BATCH_SIZE: 4               # input batch size for training
+NUM_WORKERS: 4                # num_works in DataLoader
+INPUT_SIZE: 0               # input image size for training 0 for original size
+INPUT0_SIZE: 128               # inp1 输入尺寸f
+MAX_ITERS: 1000000000                # maximum number of iterations to train the model
+
+L1_LOSS_WEIGHT: 1             # l1 loss weight
+STYLE_LOSS_WEIGHT: 100          # style loss weight
+PERCEP_LOSS_WEIGHT: 0.1        # perceptual loss weight
+INPAINT_ADV_LOSS_WEIGHT: 0.1 # adversarial loss weight
+
+GAN_LOSS: nsgan               # nsgan | lsgan | hinge | wgan
+GAN_POOL_SIZE: 0              # fake images pool size
+
+SAVE_INTERVAL: 5000 #5000         # how many iterations to wait before saving model (0: never) 5000
+SAMPLE_INTERVAL: -- #5000 #500       # how many iterations to wait before sampling (0: never)
+SAMPLE_SIZE: 0               # number of images to sample, should match the batchsize
+EVAL_INTERVAL: 5000             # how many iterations to wait before model evaluation (0: never)
+LOG_INTERVAL: 20              # how many iterations to wait before logging training status (0: never)
